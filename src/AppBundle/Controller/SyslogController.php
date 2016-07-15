@@ -104,7 +104,7 @@ final class SyslogController extends Controller
 	private function extractLogs(array $logs)
 	{
 		foreach ($logs as $key => $logUnit) {
-			preg_match('/(?P<date>\w{3,}\s\d{2,}\s\d{2,}:\d{2,}:\d{2,}).+(?P<id>\[\d+\]).+(?P<level>INFO|WARNING|ERROR):\s(?P<message>.*){"process_fingerprint":"[\d\w]*","channel":"[\d\w]*"}/', $logUnit, $matches);
+			preg_match('/(?P<date>\w{3,}\s\d{2,}\s\d{2,}:\d{2,}:\d{2,}).+(?P<id>\[\d+\]).+(?P<level>INFO|WARNING|ERROR):\s(?P<message>.*)(\{"process_fingerprint":"[\d\w]*","channel":"[\d\w]*"\})?/', $logUnit, $matches);
 
 			$log = new Log();
 			if (count($matches) >= 5) {

@@ -19,7 +19,10 @@
                 {% endif %}
             </div>
             <div class="button">
-                <a href="{{ path('list') }}" >Main</a>
+                <a href="{{ path('list') }}" >List</a>
+            </div>
+            <div class="button">
+                <a href="{{ path('read', {'container': container, 'start': start }) }}" >First page</a>
             </div>
             <div class="button">
                 <a href="{{ path('read', {'container': container, 'start': start, 'step': step + 1 }) }}" >Next</a>
@@ -40,13 +43,13 @@
     code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
     #wrapper { background: #FFF; margin: 1em auto; width: 95%; }
     #container { padding: 2em; }
-    #welcome, #status { margin-bottom: 2em; }
     #welcome h1 span { display: block; font-size: 75%; }
-    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
-    #icon-book { display: none; }
+    td:nth-child(4) {
+        word-break: break-all;
+    }
 
     .button {
-        width: 30%;
+        width: 23%;
         display: inline-block;
         text-align: center;
     }
